@@ -1,7 +1,7 @@
 function gameObject(){
     return {
         home: {
-            teamName:"Brooklyn Nets",
+            'Team Name':"Brooklyn Nets",
             colors: "Black, White",
             players: {
                "Alan Anderson" : {number: "0",  shoe: "16" , points: "22", rebounds:"12", assists:"12", steal: "3",  blocks: "1",  slamDunks:"1"},
@@ -14,7 +14,7 @@ function gameObject(){
         }
     ,
     away: {
-        teamName:"Charlotte Hornets",
+        'Team Name':"Charlotte Hornets",
         colors: "Turquoise, Purple",
         players: {
                "Jeff Adrien"        : {number: "4",  shoe: "18" , points: "10", rebounds:"1",  assists:"1",  steal: "2",  blocks: "7",  slamDunks:"2" },
@@ -27,14 +27,35 @@ function gameObject(){
     }
 }}
 
+const game = gameObject();
+const allPlayers = Object.assign({}, game.home.players, game.away.players);
 
-function numPointsScored(playerName){
-    if( home.players === playerName){
-        return home.players[playerName].points;
-    }else if (away.players === playerName){
-        return away.players[playerName].points;
-    } else{
-        return "Player doesn't exist"
-    }
+function numPointsScored (playerName) {
+    return allPlayers[playerName].points;
+}
     
+function shoeSize(playerName) {
+    return allPlayers[playerName].shoe;
+}
+
+function teamColors(teamName) {
+    if (teamName === game.home['Team Name']){
+        return game.home['colors'];
+    } else if (teamName === game.away['Team Name']){
+        return game.away['colors'];
+    }else{return "Team Name is not logged"}
+}
+
+function teamNames(object) {
+    const teams = [game.home['Team Name'], game.away['Team Name']];
+    return teams;
+}
+
+function playerNumbers(teamName) {
+    if (teamName === game.home['Team Name']){
+        const allNumbers = Object.assign({}, );
+        console.log(allNumbers);
+    } else if (teamName === game.away['Team Name']){
+        console.log(game.home.players.number);
+    }else{return "Team Name is not logged"}
 }
